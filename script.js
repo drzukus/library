@@ -7,25 +7,50 @@ function Book(title, author, pages, isRead) {
   this.isRead = isRead;
 }
 
-function addBookToLibrary() {
+function createNew() {
     const title = document.getElementById('bTitle').value;
     const author = document.getElementById('bAuthor').value;
     const pages = document.getElementById('bPages').value;
     const isRead = document.getElementById('bRead').checked;
-    myLibrary.push(new Book(title, author, pages, isRead))
+    return new Book(title, author, pages, isRead)
 }
 
 const bForm = document.getElementById("add-book-form");
-const addBookPopup = document.getElementById("add-Popup")
+const addBookPopup = document.getElementById("add-popup")
 const addBookBtn = document.getElementById("add-btn");
+const bookGrid = document.getElementById("bookGrid");
 
 bForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    addBookToLibrary();
+    const newBook = createNew();
+    myLibrary.push(newBook)
     console.log(myLibrary)
 
-    addBookPopup.style.display = "none"
+    addBookPopup.style.display = "none";
+
+    createCard(newBook);
 });
+
+
+function createCard(book) {
+    const card = document.createElement("div");
+    const title = document.createElement('p');
+    const author = document.createElement('p');
+    const pages = document.createElement('p');
+
+
+    title.textContent = book.title;
+    author.textContent = book.author;
+    pages.textContent = `${book.pages} pages`;
+
+    title.style.fontStyle = "italic";
+
+    card.appendChild(title);
+    card.appendChild(author);
+    card.appendChild(pages);
+
+    bookGrid.appendChild(card);
+}
 
 
 addBookBtn.addEventListener("click", () => {

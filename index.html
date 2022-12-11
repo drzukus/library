@@ -8,20 +8,24 @@
     <title>Document</title>
 </head>
 <body>
-    <button class="new-book" id="add-btn">NEW BOOK</button>
+    <div class="main-container">
+        <button class="new-book" id="add-btn">NEW BOOK</button>
 
-    <div class="add-book-popup" id="add-Popup">
-        <form id="add-book-form">
-            <h3>Add a Book</h3>
-            <input type="text" id="bTitle" name="title" placeholder="Title">
-            <input type="text" id="bAuthor" name="author" placeholder="Author">
-            <input type="number" id="bPages" name="pages" placeholder="Pages" min="0">
-            <div class="read-status">
-                <label for="bRead">Have you read this?</label>
-                <input type="checkbox" id="bRead" name="isRead">
-            </div>
-            <input type="submit">
-        </form>
+        <div class="book-grid" id="bookGrid"></div>
+
+        <div class="add-book-popup" id="add-popup">
+            <form id="add-book-form">
+                <h3>Add a Book</h3>
+                <input type="text" id="bTitle" name="title" placeholder="Title" required>
+                <input type="text" id="bAuthor" name="author" placeholder="Author" required>
+                <input type="number" id="bPages" name="pages" placeholder="Pages" min="0" required>
+                <div class="read-status">
+                    <label for="bRead">Have you read this?</label>
+                    <input type="checkbox" id="bRead" name="isRead">
+                </div>
+                <input type="submit">
+            </form>
+        </div>
     </div>
 
 
