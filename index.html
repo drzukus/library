@@ -8,10 +8,11 @@
     <title>Document</title>
 </head>
 <body>
-    <button>NEW BOOK</button>
+    <button class="new-book" id="add-btn">NEW BOOK</button>
 
-    <div class="add-book">
-        <form>
+    <div class="add-book-popup" id="add-Popup">
+        <form id="add-book-form">
+            <h3>Add a Book</h3>
             <input type="text" id="bTitle" name="title" placeholder="Title">
             <input type="text" id="bAuthor" name="author" placeholder="Author">
             <input type="number" id="bPages" name="pages" placeholder="Pages" min="0">
@@ -19,8 +20,11 @@
                 <label for="bRead">Have you read this?</label>
                 <input type="checkbox" id="bRead" name="isRead">
             </div>
+            <input type="submit">
         </form>
     </div>
+
+
     <script src="script.js"></script>
 </body>
 </html>
