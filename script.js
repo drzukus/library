@@ -37,21 +37,28 @@ function createCard(book) {
     const title = document.createElement('p');
     const author = document.createElement('p');
     const pages = document.createElement('p');
-
+    const removeBtn = document.createElement("button");
 
     title.textContent = book.title;
     author.textContent = book.author;
     pages.textContent = `${book.pages} pages`;
+    removeBtn.textContent = "Remove"
 
     title.style.fontStyle = "italic";
+
+    removeBtn.addEventListener("click", (e) => {
+        e.target.parentNode.remove();
+        myLibrary.splice(myLibrary.indexOf(book), 1);
+        console.log(myLibrary)
+    });
 
     card.appendChild(title);
     card.appendChild(author);
     card.appendChild(pages);
+    card.appendChild(removeBtn);
 
     bookGrid.appendChild(card);
 }
-
 
 addBookBtn.addEventListener("click", () => {
     addBookPopup.style.display = "block";
