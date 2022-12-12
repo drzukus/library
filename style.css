@@ -38,6 +38,12 @@ form {
     padding: 0.5rem;
 }
 
+.read-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 .book-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));

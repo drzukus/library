@@ -24,7 +24,6 @@ bForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const newBook = createNew();
     myLibrary.push(newBook)
-    console.log(myLibrary)
 
     addBookPopup.style.display = "none";
 
@@ -37,24 +36,31 @@ function createCard(book) {
     const title = document.createElement('p');
     const author = document.createElement('p');
     const pages = document.createElement('p');
+    const readBtn = document.createElement("button");
     const removeBtn = document.createElement("button");
 
     title.textContent = book.title;
     author.textContent = book.author;
     pages.textContent = `${book.pages} pages`;
-    removeBtn.textContent = "Remove"
+    readBtn.textContent = book.isRead ? "Read" : "Not Read";
+    removeBtn.textContent = "Remove";
 
     title.style.fontStyle = "italic";
+
+    readBtn.addEventListener("click", () => {
+        book.isRead = !book.isRead;
+        readBtn.textContent = book.isRead ? "Read" : "Not Read";
+    })
 
     removeBtn.addEventListener("click", (e) => {
         e.target.parentNode.remove();
         myLibrary.splice(myLibrary.indexOf(book), 1);
-        console.log(myLibrary)
     });
 
     card.appendChild(title);
     card.appendChild(author);
     card.appendChild(pages);
+    card.appendChild(readBtn);
     card.appendChild(removeBtn);
 
     bookGrid.appendChild(card);
